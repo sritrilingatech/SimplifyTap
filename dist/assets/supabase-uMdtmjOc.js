@@ -1,0 +1,1 @@
+import{ae as r,M as a}from"./index-DRUscm8b.js";const t=r(a.SUPABASE_URL,a.SUPABASE_ANON_KEY),A=e=>r(a.SUPABASE_URL,a.SUPABASE_ANON_KEY,{global:{headers:{Authorization:e?`Bearer ${e}`:""}}});export{A as c,t as s};

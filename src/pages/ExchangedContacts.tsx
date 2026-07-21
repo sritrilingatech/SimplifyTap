@@ -209,7 +209,7 @@ const ExchangedContacts = () => {
                                                 {/* Name */}
                                                 <div>
                                                     <h3 className="text-lg font-bold text-slate-900">
-                                                        {contact.visitor_name}
+                                                        {contact.visitor_name ?? "Unknown Name"}
                                                     </h3>
                                                 </div>
 
@@ -218,10 +218,10 @@ const ExchangedContacts = () => {
                                                     <div className="flex items-center gap-2 text-sm text-slate-600">
                                                         <Mail className="w-4 h-4 text-slate-400" />
                                                         <a
-                                                            href={`mailto:${contact.visitor_email}`}
+                                                            href={`mailto:${contact.visitor_email ?? ""}`}
                                                             className="hover:text-primary hover:underline"
                                                         >
-                                                            {contact.visitor_email}
+                                                            {contact.visitor_email ?? ""}
                                                         </a>
                                                     </div>
 
@@ -232,7 +232,7 @@ const ExchangedContacts = () => {
                                                                 href={`tel:${contact.visitor_phone}`}
                                                                 className="hover:text-primary hover:underline"
                                                             >
-                                                                {contact.visitor_phone}
+                                                                {contact.visitor_phone ?? ""}
                                                             </a>
                                                         </div>
                                                     )}

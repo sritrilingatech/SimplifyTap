@@ -491,20 +491,20 @@ export const ContactsManager = () => {
                                         </AvatarFallback>
                                     </Avatar>
                                     <div className="flex-1 min-w-0 text-slate-900">
-                                        <h4 className="font-semibold text-gray-900 truncate pr-6">{contact.name || "Unknown Name"}</h4>
-                                        <p className="text-xs text-gray-500 truncate mb-2">{contact.job_title} {contact.company ? `@ ${contact.company}` : ''}</p>
+                                        <h4 className="font-semibold text-gray-900 truncate pr-6">{contact.name || contact.business_name || "Unknown Name"}</h4>
+                                        <p className="text-xs text-gray-500 truncate mb-2">{(contact.job_title && contact.job_title !== '-') ? contact.job_title : ''} {(contact.company || contact.business_name) ? `@ ${contact.company || contact.business_name}` : ''}</p>
 
                                         <div className="space-y-1.5 hidden md:block">
-                                            {(contact.phone || contact.phone_2 !== '-') && (
+                                            {(contact.phone || (contact.phone_2 && contact.phone_2 !== '-')) && (
                                                 <div className="flex items-center gap-2 text-xs text-gray-600">
                                                     <Phone className="w-3 h-3 text-gray-400" />
-                                                    {contact.phone} {contact.phone_2 !== '-' && `/ ${contact.phone_2}`}
+                                                    {contact.phone} {contact.phone_2 && contact.phone_2 !== '-' && `/ ${contact.phone_2}`}
                                                 </div>
                                             )}
-                                            {(contact.email || contact.email_2 !== '-') && (
+                                            {(contact.email || (contact.email_2 && contact.email_2 !== '-')) && (
                                                 <div className="flex items-center gap-2 text-xs text-gray-600">
                                                     <Mail className="w-3 h-3 text-gray-400" />
-                                                    <span className="truncate">{contact.email} {contact.email_2 !== '-' && `/ ${contact.email_2}`}</span>
+                                                    <span className="truncate">{contact.email} {contact.email_2 && contact.email_2 !== '-' && `/ ${contact.email_2}`}</span>
                                                 </div>
                                             )}
                                             {contact.address && (
